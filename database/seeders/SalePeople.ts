@@ -1,9 +1,9 @@
 import BaseSeeder from '@ioc:Adonis/Lucid/Seeder'
-import SalesPerson from 'App/Models/SalesPerson'
+import SalesPeople from 'App/Models/SalesPeople'
 
-export default class SalesPersonSeeder extends BaseSeeder {
+export default class SalesPeopleSeeder extends BaseSeeder {
   public async run () {
-    await SalesPerson.createMany([
+    await SalesPeople.createMany([
       {name: 'Celeste'},
       {name: 'Leila'},
       {name: 'Luiz Claudio'},

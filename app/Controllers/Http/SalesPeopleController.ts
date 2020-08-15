@@ -1,5 +1,5 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import SalesPeople from 'App/Models/SalesPerson'
+import SalesPeople from 'App/Models/SalesPeople'
 
 /**
  * Middleware sales-people-validator

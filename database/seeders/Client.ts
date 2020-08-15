@@ -5,14 +5,19 @@ export default class ClientSeeder extends BaseSeeder {
   public async run () {
     await Client.createMany([
       {
-        name: 'Cloves',
-        address: 'Rua Dr. Plinio Barreto, 249',
-        phone: '11960467095',
+        name: 'Marcela',
+        address: 'R. Cônego Eugênio Leite, 972-1246 - Pinheiros',
+        phone: '11960468054',
       },
       {
-        name: 'Gilvania',
-        address: 'Rua Artur Prado, 513',
-        phone: '11968378323',
+        name: 'Antonio',
+        address: 'R. Fidalga, 209-1 - Pinheiros',
+        phone: '11934567896',
+      },
+      {
+        name: 'Cláudia',
+        address: 'R. Dr. Virgílio de Carvalho Pinto, 443-227 - Pinheiros',
+        phone: '11934567896',
       },
     ])
   }

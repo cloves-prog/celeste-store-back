@@ -26,6 +26,17 @@ export default class ProductSeeder extends BaseSeeder {
         stock_quantity: 1,
         store_quantity: 2,
       },
+      {
+        name: 'Conjunto para pintura',
+        description: 'kit com tintas e pincéis para pintura	',
+        brand: 'Cores Vivas',
+        provider: 'papelaria sr josé',
+        classification: 'papelaria',
+        cost_price: 19.9,
+        sales_price: 25,
+        stock_quantity: 5,
+        store_quantity: 5,
+      },
     ])
   }
 }
