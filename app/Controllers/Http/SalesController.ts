@@ -11,8 +11,10 @@ export default class SalesController {
     const bestClients = await this.salesResumeService.bestClients()
     const bestSalesPeople = await this.salesResumeService.bestSalesPeople()
     const grossProfit = await this.salesResumeService.grossProfit()
+    const netProfit = await this.salesResumeService.netProfit()
 
     response.status(200).send({
+      netProfit: netProfit,
       grossProfit: grossProfit,
       bestClients: bestClients,
       bestSalesPeople: bestSalesPeople,

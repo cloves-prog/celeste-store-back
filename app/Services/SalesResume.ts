@@ -46,4 +46,14 @@ export default class SalesResume {
     `
     return this.parser(await Database.rawQuery(query))[0]
   }
+
+  public async netProfit () {
+    const query = `
+      SELECT SUM(sales.quantity * (products.sales_price - products.cost_price)) total  FROM sales
+        INNER JOIN products on products.id = sales.product_id
+        WHERE sales.created_at >= DATE(NOW()) - INTERVAL 7 DAY;
+    `
+
+    return this.parser(await Database.rawQuery(query))[0]
+  }
 }
