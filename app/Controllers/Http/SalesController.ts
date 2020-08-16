@@ -9,8 +9,13 @@ export default class SalesController {
   }
   public async resume ({ response }: HttpContextContract) {
     const bestClients = await this.salesResumeService.bestClients()
+    const bestSalesPeople = await this.salesResumeService.bestSalesPeople()
+    const grossProfit = await this.salesResumeService.grossProfit()
+
     response.status(200).send({
-      bestClients: bestClients[0],
+      grossProfit: grossProfit,
+      bestClients: bestClients,
+      bestSalesPeople: bestSalesPeople,
     })
   }
 }
