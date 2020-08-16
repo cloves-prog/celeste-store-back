@@ -23,3 +23,5 @@ import './Client'
 import './Product'
 
 import './SalesPeople'
+
+import './Sales'
