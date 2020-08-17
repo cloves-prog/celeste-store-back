@@ -3,6 +3,8 @@ import SalesResume from '../../Services/SalesResume'
 import { uuid } from 'uuidv4'
 
 import Sales from 'App/Models/Sales'
+import Product from 'App/Models/Product'
+
 export default class SalesController {
   private salesResumeService: SalesResume
 
@@ -35,5 +37,15 @@ export default class SalesController {
     }))
 
     await Sales.createMany(sales)
+    this.updateStock(sales)
+  }
+
+  private async updateStock (sales) {
+    for (const item of sales) {
+      const product = await Product.find(item.product_id)
+
+      product!.store_quantity = product!.store_quantity - item.quantity
+      await product!.save()
+    }
   }
 }
