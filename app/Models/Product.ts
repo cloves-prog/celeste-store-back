@@ -22,6 +22,9 @@ export default class Product extends BaseModel {
   public classification: string
 
   @column()
+  public image: string
+
+  @column()
   public cost_price: number
 
   @column()

@@ -40,6 +40,7 @@ export default class ProductsController {
         'sales_price',
         'stock_quantity',
         'store_quantity',
+        'image',
       ]
     )
   }

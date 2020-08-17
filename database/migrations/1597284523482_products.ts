@@ -10,6 +10,7 @@ export default class Products extends BaseSchema {
       table.string('description').notNullable()
       table.string('brand').notNullable()
       table.string('provider').notNullable()
+      table.text('image').notNullable()
       table.string('classification').notNullable()
       table.float('cost_price').notNullable()
       table.float('sales_price').notNullable()
