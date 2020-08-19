@@ -24,14 +24,6 @@ export default class ValidateSalesPersonMiddleware {
       schema: postsSchema,
       messages: {
         'name.required': messageDefault,
-        'description.required': messageDefault,
-        'brand.required': messageDefault,
-        'provider.required': messageDefault,
-        'classification.required': messageDefault,
-        'cost_price.required': messageDefault,
-        'sales_price.required': messageDefault,
-        'stock_quantity.required': messageDefault,
-        'store_quantity.required': messageDefault,
       },
     })
 
