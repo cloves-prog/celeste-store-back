@@ -8,14 +8,8 @@ export default class ValidateSalesPersonMiddleware {
   ) {
     const postsSchema = schema.create({
       name: schema.string(),
-      description: schema.string(),
-      brand: schema.string(),
-      provider: schema.string(),
-      classification: schema.string(),
       cost_price: schema.number(),
       sales_price: schema.number(),
-      stock_quantity: schema.number(),
-      store_quantity: schema.number(),
     })
 
     const messageDefault = 'O campo {{ field }} é obrigatório'

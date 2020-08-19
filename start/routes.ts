@@ -17,6 +17,7 @@
 | import './customer'
 |
 */
+import Route from '@ioc:Adonis/Core/Route'
 
 import './Client'
 
@@ -25,3 +26,7 @@ import './Product'
 import './SalesPeople'
 
 import './Sales'
+
+Route.post('register', 'AuthController.register')
+Route.post('/login', 'AuthController.login')
+

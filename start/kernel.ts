@@ -9,4 +9,5 @@ Server.middleware.registerNamed({
   'sales-people-validator': 'App/Middleware/ValidateSalesPersonMiddleware',
   'product-validator': 'App/Middleware/ValidateProductsMiddleware',
   'sale-validator': 'App/Middleware/ValidateSaleMiddleware',
+  auth: 'App/Middleware/Auth',
 })
