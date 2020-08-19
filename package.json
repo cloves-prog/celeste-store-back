@@ -7,6 +7,9 @@
     "start": "npm install && node ace build && node build/server.js",
     "lint": "eslint . --ext=.ts"
   },
+  "engines": {
+    "node": "12.18.2"
+  },
   "devDependencies": {
     "@adonisjs/assembler": "^2.0.0",
     "adonis-preset-ts": "^1.0.4",

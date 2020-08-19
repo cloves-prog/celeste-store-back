@@ -9,7 +9,37 @@ export default class SalesResume {
 
     return null
   }
+  public async delete (salesNumber: string) {
+    await Database
+      .from('sales')
+      .delete()
+      .where('sales_number', salesNumber)
+  }
 
+  public async getResume () {
+    const bestClients = await this.bestClients()
+    const bestSalesPeople = await this.bestSalesPeople()
+    const grossProfit = await this.grossProfit()
+    const netProfit = await this.netProfit()
+
+    return {
+      bestClients,
+      bestSalesPeople,
+      grossProfit,
+      netProfit,
+    }
+  }
+
+  public async list () {
+    const query = `
+    SELECT sales_number, GROUP_CONCAT(DISTINCT products.name SEPARATOR ', ') products,
+      sales_people.name as sales_people_name, clients.name as client_name FROM sales
+        INNER JOIN products on products.id = sales.product_id
+        INNER JOIN sales_people on sales_people.id = sales.sales_people_id
+        INNER JOIN clients on clients.id = sales.client_id GROUP BY sales_number, sales_people.name, clients.name;
+    `
+    return this.parser(await Database.rawQuery(query))
+  }
   public async bestClients (limit = 4) {
     const query = `
       SELECT clients.name, sales.client_id as id, SUM(products.sales_price * sales.quantity) total

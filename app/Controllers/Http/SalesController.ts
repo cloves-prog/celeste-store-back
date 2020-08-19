@@ -1,28 +1,27 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import SalesResume from '../../Services/SalesResume'
+import SalesRepository from '../../Repositories/SalesRepository'
 import { uuid } from 'uuidv4'
 
 import Sales from 'App/Models/Sales'
 import Product from 'App/Models/Product'
 
 export default class SalesController {
-  private salesResumeService: SalesResume
+  private salesRepository: SalesRepository
 
   constructor () {
-    this.salesResumeService = new SalesResume()
+    this.salesRepository = new SalesRepository()
   }
-  public async resume ({ response }: HttpContextContract) {
-    const bestClients = await this.salesResumeService.bestClients()
-    const bestSalesPeople = await this.salesResumeService.bestSalesPeople()
-    const grossProfit = await this.salesResumeService.grossProfit()
-    const netProfit = await this.salesResumeService.netProfit()
 
-    response.status(200).send({
-      netProfit: netProfit,
-      grossProfit: grossProfit,
-      bestClients: bestClients,
-      bestSalesPeople: bestSalesPeople,
-    })
+  public async index ({ response }: HttpContextContract) {
+    return response.status(200).send(await this.salesRepository.list())
+  }
+
+  public async destroy ({ params }: HttpContextContract) {
+    this.salesRepository.delete(params.sales_number)
+  }
+
+  public async resume ({ response }: HttpContextContract) {
+    response.status(200).send(await this.salesRepository.getResume())
   }
 
   public async store ({ request }: HttpContextContract) {
