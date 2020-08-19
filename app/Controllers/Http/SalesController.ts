@@ -43,6 +43,12 @@ export default class SalesController {
     for (const item of sales) {
       const product = await Product.find(item.product_id)
 
+      // Transfere os itens do estoque para loja automáticamente
+      if (product!.store_quantity < item.quantity) {
+        product!.store_quantity = product!.store_quantity + product!.stock_quantity
+        product!.stock_quantity = 0
+      }
+
       product!.store_quantity = product!.store_quantity - item.quantity
       await product!.save()
     }
