@@ -18,4 +18,9 @@ deploy:
   password: $IBMCLOUD_PASSWORD
   organization: $IBMCLOUD_ORGANIZATION
   space: dev
-  edge: true # opt in to dpl v2
+  edge: true
+  on:    
+    tags: true
+    branch:
+      - beta 
+      - master
